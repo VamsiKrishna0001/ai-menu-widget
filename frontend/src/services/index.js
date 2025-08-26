@@ -1,0 +1,1 @@
+export { foodDescriptionAPI } from './api';

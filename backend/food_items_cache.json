@@ -1,0 +1,11 @@
+{
+  "Pizza_gpt-3.5-turbo": {
+    "id": "cfa3ae79-f04b-4585-8acc-1e1c81bfbcca",
+    "name": "Pizza",
+    "model": "gpt-3.5-turbo",
+    "description": "A delightful Pizza that brings light and freshness to your palate. This carefully crafted dish features premium ingredients and a balanced flavor profile that will brighten your dining experience.",
+    "upsell": "Pair your Pizza with our signature house salad and a refreshing beverage for the perfect light meal combination!",
+    "last_accessed": "2025-08-26T13:55:47.938164",
+    "access_count": 1
+  }
+}
