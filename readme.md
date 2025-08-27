@@ -19,12 +19,14 @@ source venv/bin/activate     # (Windows: venv\Scripts\activate)
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
-Add .env file add OPENAI_API_KEY
-Backend runs at 👉 http://localhost:8000
-Interactive docs 👉 http://localhost:8000/docs
-```
 
-```
+### Environments Variables and Swagger Docs
+- Add .env file add OPENAI_API_KEY
+
+- Backend runs at 👉 http://localhost:8000
+- Interactive docs 👉 http://localhost:8000/docs
+
+```bash
 cd frontend
 npm install
 npm start
@@ -46,26 +48,49 @@ npm start
 
 ### AI Tools
 - **OpenAI GPT-3.5 / GPT-4 (planned)** – For generating menu descriptions and upsell suggestions  
-- **Cursor AI (local dev integration)** – Assisted in writing and refining prompts & backend integration
+- **Cursor AI (local dev integration)** – Assisted in writing and refining code & backend integration
 
 ---
 
+
 ## Prompt Design
 
-The AI prompt was carefully designed to achieve **two goals**:
-1. **Short, catchy descriptions** (max 30 words, menu-style tone: "crispy, juicy, tender").  
-2. **One upsell suggestion** (a side, drink, or dessert that pairs naturally).
+The AI prompt was carefully designed to ensure consistent, marketing-ready menu text that matches how professional restaurants describe their dishes.
 
-### Iterations:
-- **First attempt:** Simple prompt `"Generate a description and upsell for Paneer Tikka Pizza"` → results were inconsistent, sometimes too long.  
-- **Second iteration:** Added explicit **format requirement** (`DESCRIPTION: ... / UPSELL: ...`) → more structured, but still verbose.  
-- **Final iteration:**  
-  - Limited to **30 words max**.  
-  - Added **tone guidance** (“engaging, food-friendly, like a menu”).  
-  - Forced **JSON output** for reliable backend parsing.  
+### Goals
+1. **Generate a short, catchy description** (max 30 words) that sounds like a real menu.  
+   - Engaging and food-friendly tone  
+   - Sensory language (taste, smell, texture)  
+   - Style inspired by professional menus (“crispy, juicy, tender, spicy”)  
+   - Highlight premium ingredients and preparation methods  
 
-This ensures responses are **short, styled like real menus, and machine-parseable**.
+2. **Suggest one upsell item** (side, drink, or dessert) that pairs naturally with the main dish.  
+   - Keep it short, fun, and appealing  
+   - Encourage customers to enhance their meal with an add-on  
 
+### Iterations
+- **Initial version**:  
+  Prompted the model with `"Generate a description and upsell for {food_name}"`.  
+  → Results were inconsistent (too long, sometimes multiple upsells, lacked style).
+
+- **Second version**:  
+  Added explicit formatting instructions (`DESCRIPTION:` and `UPSELL:`).  
+  → More structured, but still sometimes exceeded 30 words.
+
+- **Final version (system prompt used):**  
+  ```text
+  You are a professional AI food menu assistant and restaurant marketing expert. 
+  Generate compelling descriptions and upsell messages for food items.
+  Your Tasks:
+  1. Generate a SHORT, catchy description (max 30 words).
+     - Use engaging, food-friendly language.
+     - Use sensory language (taste, smell, texture).
+     - Style should be similar to professional menus (crispy, juicy, tender, spicy, etc.).
+     - Do NOT exceed 30 words.
+     - Include premium ingredients and preparation methods.
+  2. Suggest ONE upsell item (a side, drink, or dessert that pairs well).
+     - Suggest pairings or enhancements.
+     - Keep it short, fun, and appealing.
 ---
 
 ## Time Taken & Tradeoffs
@@ -87,11 +112,13 @@ This ensures responses are **short, styled like real menus, and machine-parseabl
 ---
 
 ## Project Structure
+```
 ai-menu-widget/
 ├── frontend/     # React app (UI)
 ├── backend/      # FastAPI app (API + AI integration)
 ├── .gitignore
 └── README.md
+```
 
 ---
 
