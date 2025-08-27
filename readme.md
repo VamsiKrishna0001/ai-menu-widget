@@ -9,6 +9,17 @@ A full-stack application (React frontend + FastAPI backend) for generating short
 - **Node.js** v14+ and npm (for frontend)
 - **Python** 3.8+ and pip (for backend)
 
+## Project Structure
+```
+ai-menu-widget/
+├── frontend/     # React app (UI)
+├── backend/      # FastAPI app (API + AI integration)
+├── .gitignore
+└── README.md
+```
+
+---
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/<your-username>/ai-menu-widget.git
@@ -108,17 +119,6 @@ The AI prompt was carefully designed to ensure consistent, marketing-ready menu 
 - **AI quota**: Mock responses fallback used since OpenAI API quota may run out during testing.  
 - **Model toggle**: Currently limited to GPT-3.5 (tested) with placeholder toggle for GPT-4 (not available in free quota).  
 - **Integration**: API are integration to frontend, using the api we get upsell and description from openAI response, Description can be copied from the frontend which is generated from openAI and can be used as well.
-
----
-
-## Project Structure
-```
-ai-menu-widget/
-├── frontend/     # React app (UI)
-├── backend/      # FastAPI app (API + AI integration)
-├── .gitignore
-└── README.md
-```
 
 ---
 
