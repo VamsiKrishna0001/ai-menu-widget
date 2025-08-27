@@ -106,9 +106,9 @@ The AI prompt was carefully designed to ensure consistent, marketing-ready menu 
 
 ## Time Taken & Tradeoffs
 
-- **Total Time**: ~3–6 hours  
-  - Backend setup & validation: ~1 hrs  
-  - Frontend UI with toggles: ~2 hrs  
+- **Total Time**: ~2–4 hours  
+  - Backend setup & validation: ~ 30 mins  
+  - Frontend UI with toggles: ~1 hrs  
   - Prompt engineering & testing: ~1 hrs  
   - Caching & persistence: ~30 min 
   - Documentation & cleanup: ~ 30 min  
